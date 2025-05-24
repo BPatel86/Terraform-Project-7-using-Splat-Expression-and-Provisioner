@@ -30,7 +30,7 @@ resource "aws_security_group" "allow_ssh" {
 resource "aws_instance" "myec22" {
    ami = "ami-03a13a09a711d3871"
    instance_type = "t2.micro"
-   key_name = "Mar2025"
+   key_name = "XXXXX"
    vpc_security_group_ids  = [aws_security_group.allow_ssh.id]
 
    provisioner "remote-exec" {
@@ -50,7 +50,7 @@ resource "aws_instance" "myec22" {
    connection {
      type = "ssh"
      user = "ec2-user"
-     private_key = file("./Mar2025.pem")
+     private_key = file("./XXXXX.pem")
      host = self.public_ip
    }
 }
